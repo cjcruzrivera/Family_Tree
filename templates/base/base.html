@@ -1,0 +1,93 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>
+        {% block title %}
+            ARBOL FAMILIAR
+        {% endblock %}
+    </title>
+    <link rel="shortcut icon" href="{% static 'images/icono.ico' %}">
+</head>
+<body>
+<div class="container">
+
+    {% block navbar %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <img src="{% static 'images/icono.ico' %}" style="width: 80px; padding-right: 10px">
+            <a class="navbar-brand" href="#">ARBOL FAMILIAR </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <div class="btn-group" role="group">
+                              <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Personas
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                              </div>
+                            </div>
+                          </div>
+                    </li>
+                    <li class="nav-item">
+
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <div class="btn-group" role="group">
+                              <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Relaciones
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                              </div>
+                            </div>
+                          </div>
+                    </li>
+                    <li class="nav-item">
+
+                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                <div class="btn-group" role="group">
+                                  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Familias
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="#">Dropdown link</a>
+                                    <a class="dropdown-item" href="#">Dropdown link</a>
+                                  </div>
+                                </div>
+                              </div>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    {% endblock %}
+
+
+    {% block content %}
+        <h4> Bloque de contenido </h4>
+    {% endblock %}
+
+
+    {% block footer %}
+    {% endblock %}
+</div>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+</body>
+</html>

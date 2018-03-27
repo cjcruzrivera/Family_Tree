@@ -9,4 +9,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("INDEX EN PERSONA")
+    return render(request, 'persona/index.html')

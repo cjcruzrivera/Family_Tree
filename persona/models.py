@@ -7,6 +7,7 @@ class Persona(models.Model):
     sexo = models.CharField(max_length=1)
     fecha_nacimiento = models.DateField(blank=True, null=True)
     estado = models.BooleanField(default=True)
+    generacion = models.IntegerField()
 
     def __unicode__(self):
         return self.nombre

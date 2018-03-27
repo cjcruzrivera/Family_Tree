@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^persona/', include('persona.urls', namespace="persona")),
     url(r'^reportes/', include('reportes.urls', namespace="reportes")),
+    url(r'^$', include('reportes.urls', namespace="index")),
+    url(r'^/$', include('reportes.urls', namespace="index")),
 ]
