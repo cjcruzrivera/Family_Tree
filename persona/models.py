@@ -1,4 +1,5 @@
 from django.db import models
+from familia.models import Familia
 
 
 # Create your models here.
@@ -8,6 +9,7 @@ class Persona(models.Model):
     fecha_nacimiento = models.DateField(blank=True, null=True)
     estado = models.BooleanField(default=True)
     generacion = models.IntegerField()
+    familia = models.ForeignKey(Familia, null=True)
 
     def __unicode__(self):
         return self.nombre

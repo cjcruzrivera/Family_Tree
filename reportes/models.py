@@ -28,5 +28,11 @@ class Relaciones(models.Model):
         related_name='persona_relacionada',
     )
 
-    def __unicode__(self):
-        return self.nombre
+class Parejas(models.Model):
+    persona = models.ForeignKey(Persona)
+    persona2 = models.ForeignKey(
+        Persona,
+        on_delete=models.CASCADE,
+        related_name='pareja',
+    )
+    estado = models.BooleanField()

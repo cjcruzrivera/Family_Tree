@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from reportes.views import index
+from familia.views import index
 
 urlpatterns = [
     url(r'^index$', index),
