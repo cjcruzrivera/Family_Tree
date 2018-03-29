@@ -18,7 +18,10 @@ def new_persona(request):
         form = Persona_Form(request.POST)
         if form.is_valid():
             registro = form.save(commit=False)
-            registro.generacion = registro.padre.generacion + 1
+            if registro.padre:
+                registro.generacion = registro.padre.generacion + 1
+            else:
+                registro.generacion = 0
             registro.familia = registro.padre.familia
             registro.save()
         return redirect('persona:index')
