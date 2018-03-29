@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <td class="text-primary">Nombre</td>
+            <td class="text-primary">Fecha Nacimiento</td>
+            <td class="text-primary">Padre</td>
+            <td class="text-primary">Madre</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if personas%}
+        {% for persona in personas %}
+        <tr>
+            <td class="text-primary">{{ persona.nombre }}</td>
+            <td>{{ persona.fecha_nacimiento }}</td>
+            {% if persona.padre %}
+            <td>{{ persona.padre.nombre }}</td>
+            {% else %}
+            <td> NO REGISTRA</td>
+            {% endif %}
+            {% if persona.madre %}
+            <td>{{ persona.madre.nombre }}</td>
+            {% else %}
+            <td> NO REGISTRA</td>
+            {% endif %}
+                        
+        </tr>
+        {% endfor %}        
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}

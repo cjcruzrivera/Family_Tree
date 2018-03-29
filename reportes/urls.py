@@ -1,7 +1,6 @@
 from django.conf.urls import url
-from reportes.views import index
+from reportes.views import index_reportes
 
 urlpatterns = [
-    url(r'^index$', index),
-    url(r'^$', index),
+    url(r'^$', index_reportes),
 ]
