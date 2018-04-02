@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %} {% block content %}
+<div class="jumbotron" style="padding: 1rem 2rem">
+
+    <form method="POST">
+        {% csrf_token %}
+        <h3>¿Seguro que desea eliminar el registro de la persona {{ persona.nombre }}? </h3>
+        <div class="text-center">
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+            <a class="btn btn-info" href="{% url 'familia:listar_familias'%}">Cancelar</a>    
+        </div>
+    </form>
+    
+</div>
+{% endblock %}

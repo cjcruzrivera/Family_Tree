@@ -52,7 +52,7 @@
                                     Consultas
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a class="dropdown-item" href="{% url 'persona:listar_personas' %}">Consultar miembros de la familia</a>
+                                    <a class="dropdown-item" href="#">Consultar miembros de la familia</a>
                                     <a class="dropdown-item" href="#">Consultar miembros por parentesco</a>
                                     <a class="dropdown-item" href="#">Consultar cumpleaños de la familia</a>
                                 </div>
@@ -68,8 +68,8 @@
                                     Familias
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a class="dropdown-item" href="#">Registrar nueva Familia</a>
-                                    <a class="dropdown-item" href="#">Consultar Familias</a>
+                                    <a class="dropdown-item" href="{% url 'familia:nueva_familia' %}">Registrar nueva Familia</a>
+                                    <a class="dropdown-item" href="{% url 'familia:listar_familias' %}">Consultar Familias</a>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
         <h4> Bloque de contenido </h4>
         {% endblock %} {% block footer %} {% endblock %}
     </div>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 

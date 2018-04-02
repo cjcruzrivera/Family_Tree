@@ -9,14 +9,16 @@ class Persona_Form(forms.ModelForm):
         fields = [
             'nombre',
             'fecha_nacimiento',
+            'estado',
             'padre',
-            'madre'
+            'madre',
         ]
         labels = {
             'nombre': 'Nombre Completo',
             'fecha_nacimiento': 'Fecha de Nacimiento',
+            'estado': 'Vive',
             'padre': 'Padre',
-            'madre': 'Madre'
+            'madre': 'Madre',
         }
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control'}),

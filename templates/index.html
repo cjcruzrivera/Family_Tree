@@ -1,5 +1,23 @@
 {% extends 'base/base.html' %}
 
+{% block nombre_familia%}
+{% if familia%}
+FAMILIA {{ familia.nombre }}
+{% endif %}
+{% endblock %}
+
 {% block content %}
-<h4 class="text-center">Este es el index GENERAL</h4>
+<div class="jumbotron">
+        <h3 class="display-4 text-center">ARBOL FAMILIAR</h3>
+        {% if familia%}        
+        <h1 class="display-3 text-center">FAMILIA {{ familia.nombre }}</h1>
+        {% else %}
+        <p class="lead text-center">Seleccione la familia a administrar.</p>
+        {% endif %}
+        <hr class="my-4">
+        <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p> -->
+      </div>
 {% endblock %}

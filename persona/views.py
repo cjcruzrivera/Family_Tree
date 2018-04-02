@@ -26,13 +26,32 @@ def new_persona(request):
                 registro.familia = None
             
             registro.save()
-        return redirect('persona:index')
+        return redirect('persona:listar_personas')
     else:
         form = Persona_Form()
     return render(request, 'persona/persona_form.html', {'form':form})
 
 
 def list_persona(request):
-    persona = Persona.objects.all()
+    persona = Persona.objects.all().order_by('id')
     contexto = {'personas':persona}
     return render(request, 'persona/persona_list.html', contexto)
+
+
+def edit_persona(request, id_persona):
+    persona = Persona.objects.get(id=id_persona)
+    if request.method == "GET":
+        form = Persona_Form(instance=persona)
+    else:
+        form = Persona_Form(request.POST,instance=persona)
+        if form.is_valid():
+            form.save()
+            return redirect('persona:listar_personas')
+    return render(request, 'persona/persona_form.html', {'form':form})
+
+def delete_persona(request, id_persona):
+    persona = Persona.objects.get(id=id_persona)
+    if request.method == 'POST':
+        persona.delete()
+        return redirect('persona:listar_personas')
+    return render(request, 'persona/persona_delete.html', {'persona': persona})

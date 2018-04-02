@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %} 
+
+{% block content %}
+<div class="jumbotron" style="padding: 1rem 2rem">
+    <h3 class="display-4 text-center">FAMILIAS</h3>
+
+    <table class="table table-bordered">
+        {% if familias%}
+        <thead>
+            <tr class="table-primary">
+                <td class="text-primary text-center">Nombre de la familia</td>
+                <td class="text-primary text-center" style="width: 220px;">Acciones</td>                
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+            {% for familia in familias %}
+            <tr>
+                <td class="text-primary text-center" style="padding: 10px 10px 10px 10px">{{ familia.nombre }}</td>
+                <td class="text-center" style="padding: 10px 10px 10px 10px">
+                        <a class="btn btn-primary btn-sm" href="{% url 'familia:editar_familia' familia.id %}">Editar</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'familia:eliminar_familia' familia.id %}">Eliminar</a>
+                </td>
+            </tr>
+            
+            {% endfor %}         
+            {% else %}
+            <h4>NO HAY FAMILIAS REGISTRADAS</h4>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

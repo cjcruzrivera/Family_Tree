@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %} 
+
+
+
+
+{% block content %}
+<div class="jumbotron" style="padding: 1rem 2rem">
+    <h3 class="display-4 text-center">FAMILIAS</h3>
+    {% if familias%}
+    <hr class="my-4">
+    {% for familia in familias %}    
+    <p class="text-center" style="float:left; padding-right: 10px">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Familia {{ familia.nombre}}</a>
+    </p>
+    {% endfor %}         
+    
+    {% else %}
+    <h4 class="lead text-center">No hay familias registradas.</h4>
+    <hr class="my-4">
+    {% endif %}
+
+</div>
+{% endblock %}

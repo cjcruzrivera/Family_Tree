@@ -1,39 +1,39 @@
-{% extends 'base/base.html' %}
-
-{% block content %}
+{% extends 'base/base.html' %} {% block content %}
 
 <table class="table table-bordered">
-        {% if personas%}
+    {% if personas%}
     <thead>
         <tr>
             <td class="text-primary">Nombre</td>
             <td class="text-primary">Fecha Nacimiento</td>
             <td class="text-primary">Padre</td>
             <td class="text-primary">Madre</td>
+            <td class="text-secondary">Acciones</td>
         </tr>
     </thead>
 
     <tbody>
-        
+
         {% for persona in personas %}
         <tr>
             <td class="text-primary">{{ persona.nombre }}</td>
-            <td>{{ persona.fecha_nacimiento }}</td>
+            <td class="text-primary">{{ persona.fecha_nacimiento }}</td>
             {% if persona.padre %}
-            <td>{{ persona.padre.nombre }}</td>
+            <td class="text-primary">{{ persona.padre.nombre }}</td>
+            {% else %}
+            <td> NO REGISTRA</td>
+            {% endif %} {% if persona.madre %}
+            <td class="text-primary">{{ persona.madre.nombre }}</td>
             {% else %}
             <td> NO REGISTRA</td>
             {% endif %}
-            {% if persona.madre %}
-            <td>{{ persona.madre.nombre }}</td>
-            {% else %}
-            <td> NO REGISTRA</td>
-            {% endif %}
-                        
+            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                <a class="btn btn-primary btn-sm" href="{% url 'persona:editar_persona' persona.id %}">Editar</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'persona:borrar_persona' persona.id %}">Eliminar</a>
+            </td>
         </tr>
-        {% endfor %}
-        {% else %}
-        <h4>NO HAY PERSONAS REGISTRADAS</h4>        
+        {% endfor %} {% else %}
+        <h4>NO HAY PERSONAS REGISTRADAS</h4>
         {% endif %}
     </tbody>
 </table>

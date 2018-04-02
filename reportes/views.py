@@ -12,7 +12,9 @@ def desarrollador(request):
     return render(request, 'desarrollador.html')
 
 def index(request):
-    return render(request, 'index.html')
+    familia = {'nombre': "RIVERA"}
+    contexto = {'familia':familia}
+    return render(request, 'index.html', contexto)
 
 def index_reportes(request):
     return render(request, 'reportes/index.html')
